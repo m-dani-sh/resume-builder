@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F4F4F9;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            width: 21cm;
+            height: 29.7cm;
+            /* A4 paper size */
+            margin: 20px auto;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .left-section {
+            width: 30%;
+            background-color: #0A3A4F;
+            padding: 20px;
+            color: #FFF;
+            border-radius: 15px 0 0 15px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 2px solid #FFF;
+            margin-bottom: 20px;
+        }
+
+        .profile-section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #FFEB3B;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #cdb900d7;
+        }
+
+        .profile-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #ddd;
+            text-align: center;
+        }
+
+        .icon {
+            width: 18px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: rgb(221, 233, 244);
+        }
+
+        .right-section {
+            width: 70%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .right-section h2 {
+            font-size: 22px;
+            color: #0A3A4F;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0A3A4F;
+            padding-bottom: 5px;
+        }
+
+        .job {
+            margin-bottom: 25px;
+
+        }
+
+        .job h3 {
+            border-bottom: 2px solid #0A3A4F;
+            padding-bottom: 5px;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .job p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .job ul {
+            list-style-type: square;
+            margin-left: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .sidebar {
+            width: 30%;
+            background-color: #EDEDED;
+            padding: 20px;
+            margin-left: 30px;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            color: #0A3A4F;
+            margin-bottom: 10px;
+        }
+
+        .sidebar p,
+        .sidebar ul {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 8px;
+        }
+
+
+        /* From Uiverse.io by Ayzen-Dev */
+        .button {
+            margin-top: 850px;
+            margin-bottom: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .button a {
+            display: block;
+            height: 50px;
+            width: 200px;
+            background: #00b7ea;
+            color: white;
+            font: 17px/50px Helvetica, Verdana, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00b7ea), color-stop(100%, #009ec3));
+            background: -webkit-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+            background: -o-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+            background: -ms-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+            background: linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b7ea', endColorstr='#009ec3', GradientType=0);
+        }
+
+        b {
+            background: #222;
+            display: block;
+            height: 40px;
+            width: 180px;
+            margin: -50px 0 0 10px;
+            text-align: center;
+            font: 12px/45px Helvetica, Verdana, sans-serif;
+            color: #fff;
+            position: absolute;
+            z-index: -1;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
+        .button a,
+        b {
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover .top {
+            margin: -80px 0 0 10px;
+            line-height: 35px;
+        }
+
+        .button:hover .bottom {
+            margin: -10px 0 0 10px;
+        }
+
+        .button a:active {
+            background: #00b7ea;
+            background: -moz-linear-gradient(top, #00b7ea 36%, #009ec3 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(36%, #00b7ea), color-stop(100%, #009ec3));
+            background: -webkit-linear-gradient(top, #00b7ea 36%, #009ec3 100%);
+            background: -o-linear-gradient(top, #00b7ea 36%, #009ec3 100%);
+            background: -ms-linear-gradient(top, #00b7ea 36%, #009ec3 100%);
+            background: linear-gradient(top, #00b7ea 36%, #009ec3 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b7ea', endColorstr='#009ec3', GradientType=0);
+        }
+
+        .button:active .bottom {
+            margin: -20px 0 0 10px;
+        }
+
+        .button:active .top {
+            margin: -70px 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cvContainer" class="container">
+        <div class="left-section">
+            <div class="profile-section">
+
+                <img id="profilePic" class="profile-img">
+
+                <h1 id="name"></h1>
+
+                <p class="profile-desc" id="info"></p>
+
+                <div class="contact-info">
+
+                    <h3>Job applied for : </h3>
+                    <p style="color: #f9ffda;" id="jobTitle"></p>
+                    <br><br>
+
+                    <h3>Email :</h3>
+                    <p id="email"></p>
+                    <br><br>
+
+                    <h3>Contact :</h3>
+                    <p id="phone"></p>
+                    <br><br>
+
+                    <h3>Address :</h3>
+                    <p id="address"></p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right-section">
+            <div class="job">
+                <h3>Personal Details</h3>
+                <p id="about"></p>
+            </div>
+
+
+
+            <div class="job">
+                <h3>Working Experience</h3>
+                <div style="display: flex; gap: 10px; justify-content: space-around;">
+                    <div>
+                        <h5>comapny</h5>
+                        <p id="company-name"></p>
+                    </div>
+                    <div> <h5 >position</h5>
+                        <p id="position"></p> 
+                    </div>               
+
+                </div>
+               
+                <p id="workExperience"></p>
+                
+
+            </div>
+
+            <div class="job">
+                <h3>Education </h3>
+                <p id="education"></p>
+                    <div style="display: flex; gap: 10px; justify-content: space-around;">
+                        <div>
+                            <p style="font-size: small;">Starting Date:</p>
+                            <p style="margin-top: 13px; font-size: small;">Ending Date:</p>
+                        </div>
+                        <div>
+                            <p id="education-start-date"></p>
+                            <p id="education-end-date"></p> 
+                        </div>               
+    
+                    </div>
+
+            
+            <div class=" job">
+                    <h3>Certificate</h3>
+                    <p id="certificate-name"></p>
+                    <!-- <span>from</span> -->
+                    <p id="organization-name"></p>
+
+                </div>
+
+
+            </div>
+            <div class="job">
+
+                <h3>Career Objective </h3>
+                <p></p>
+                <ul id="Career">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <div class="sidebar">
+            <h2>Languages</h2>
+            <p id="languages">
+            <ul>
+                <li id="language1"></li>
+                <li id="language2"></li>
+            </ul>
+            </p>
+            <h2>Skills</h2>
+            <p id="skills">
+            <ul>
+                <li ></li>
+                <li ></li>
+                <li ></li>
+            </ul>
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="button">
+        <a href="#" id="downloadBtn">Download</a>
+        <b class="top">click to download</b>
+        <b class="bottom">1.2MB .zip</b>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('name').innerText = localStorage.getItem('name');
+        document.getElementById('phone').innerText = localStorage.getItem('phone');
+        document.getElementById('email').innerText = localStorage.getItem('email');
+        document.getElementById('address').innerText = localStorage.getItem('address');
+        document.getElementById('skills').innerText = localStorage.getItem('skills');
+        document.getElementById('language1').innerText = localStorage.getItem('language1');
+        document.getElementById('language2').innerText = localStorage.getItem('language2');
+        document.getElementById('jobTitle').innerText = localStorage.getItem('jobTitle');
+        document.getElementById('company-name').innerText = localStorage.getItem('company-name');
+        document.getElementById('position').innerText = localStorage.getItem('position');
+        document.getElementById('certificate-name').innerText = localStorage.getItem('certificate-name');
+        document.getElementById('organization-name').innerText = localStorage.getItem('organization-name');
+        document.getElementById('workExperience').innerText = localStorage.getItem('workExperience');
+        document.getElementById('education').innerText = localStorage.getItem('education');
+        document.getElementById('education-start-date').innerText = localStorage.getItem('education-start-date');
+        document.getElementById('education-end-date').innerText = localStorage.getItem('education-end-date');
+
+        //    document.getElementById('personalDetails').innerText = localStorage.getItem('personalDetails');
+        document.getElementById('about').innerText = localStorage.getItem('about');
+
+        const imageSrc = localStorage.getItem('profilePic');
+        if (imageSrc) {
+            document.getElementById('profilePic').src = imageSrc;
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            const cvContainer = document.getElementById('cvContainer');
+            html2pdf(cvContainer);
+        });
+    </script>
+
+
+</body>
+
+</html>
